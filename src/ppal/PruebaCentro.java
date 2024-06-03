@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 import conexion.ConexionBD;
 
-public class PruebaConexion {
+public class PruebaCentro {
 
 	public static void main(String[] args) {
 		
@@ -28,16 +28,16 @@ public class PruebaConexion {
 			
 			//Paso 3. Ejecutar la sentencia
 			
-			resultado = sentencia.executeQuery(" select cod_empleado, nombre, salario from empleados");
+			resultado = sentencia.executeQuery(" select cod_centro, nombre, direccion from centros");
 			
 			//Paso 4. Recorre el resultado
 			while(resultado.next()) {
-				int codEmpleado = resultado.getInt("cod_empleado");
+				int codcentro = resultado.getInt("cod_centro");
 				String nombre = resultado.getString("nombre");
-				int salario = resultado.getInt("salario");
+				String direccion = resultado.getString("direccion");
 				
 				
-				System.out.println(codEmpleado+"\t"+nombre+"\t"+salario);
+				System.out.println(codcentro+"\t"+nombre+"\t"+direccion);
 			}
 			
 		} catch (SQLException e) {
@@ -59,3 +59,4 @@ public class PruebaConexion {
 	}
 
 }
+
